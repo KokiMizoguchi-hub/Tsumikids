@@ -1,0 +1,860 @@
+#background {
+    position: fixed;
+    /* ← 画面に固定 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    /* ← 他の要素の後ろへ */
+    pointer-events: none;
+    /* ← クリック無効化 */
+}
+
+.shape {
+    position: absolute;
+    opacity: 0.19;
+    animation: float 10s linear infinite;
+
+}
+
+.circle {
+    border-radius: 50%;
+}
+
+.triangle {
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 35px solid red;
+    /* 色はJSで上書き */
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-20px);
+    }
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+
+}
+
+/* ヘッダー全体 */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    height: 60px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    z-index: 1000;
+}
+
+
+.logo img {
+    height: 80px;
+    width: auto;
+}
+
+.menu-icon {
+    font-size: 28px;
+    cursor: pointer;
+    z-index: 1001;
+    transition: transform 0.3s ease;
+}
+
+
+.menu-icon.active {
+    transform: rotate(90deg);
+}
+
+/* メニューパネル */
+.menu-panel {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 200px;
+    height: 100%;
+    background: #fff;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+    transition: right 0.3s ease;
+    z-index: 999;
+    padding-top: 60px;
+}
+
+.menu-panel.active {
+    right: 0;
+}
+
+.menu-panel ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
+
+.menu-panel li {
+    padding: 15px 20px;
+    border-bottom: 1px solid #ccc;
+}
+
+.menu-panel a {
+    text-decoration: none;
+    color: #333;
+}
+
+.hero {
+    position: relative;
+    width: 100%;
+    height: 45vh;
+    overflow: hidden;
+}
+
+.hero-text {
+    position: relative;
+    text-align: center;
+    /* 中央揃え */
+    z-index: 10;
+    padding-top: 120px;
+    width: 100%;
+    /* 幅を全体に広げる */
+    margin: 0 auto;
+    /* ブロックごと中央寄せ */
+}
+
+.hero-text h1 {
+    font-size: 38px;
+    font-weight: 800;
+    line-height: 1.3;
+    margin: 0 0 10px;
+}
+
+.hero-text p {
+    font-size: 1.2rem;
+    color: #333;
+    margin-top: 10px;
+}
+
+
+/* SNSアイコン */
+.social-icons {
+    position: absolute;
+    position: fixed;
+    bottom: 70px;
+    right: 20px;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.insta-icon {
+    width: 40px;
+    height: 40px;
+}
+
+.tiktok-icon {
+    width: 40px;
+    height: 40px;
+}
+
+.x-icon {
+    margin-left: 3px;
+    width: 30px;
+    height: 30px;
+}
+
+.contact-menu {
+    position: fixed;
+    /* 画面に固定 */
+    left: 0;
+    /* 位置を明示 */
+    right: 0;
+    bottom: 0;
+    /* 下部に固定（上に出したいなら top:0 に） */
+    z-index: 2;
+    /* 上に重ねる */
+
+    background-color: #FFD524;
+    padding: 8px;
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    box-sizing: border-box;
+    /* 横幅はみ出し防止 */
+}
+
+
+.contact-menu button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 100px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.contact-menu button:hover {
+    background-color: #e0e0e0;
+}
+
+.contact-btn {
+    background-color: white;
+    color: black;
+    border: 2px solid black;
+}
+
+.contact-menu .line-btn {
+    background-color: #06C755;
+    /* LINEグリーン */
+    color: white;
+    transition: background-color 0.3s ease;
+    /* 色の変化をスムーズに */
+}
+
+.contact-menu .line-btn:hover {
+    background-color: #028a3d;
+}
+
+.icon {
+    width: 30px;
+    height: 30px;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+
+/* Section Styling */
+.section {
+    padding: 10px 20px;
+    text-align: center;
+}
+
+section.english {
+    background: linear-gradient(180deg, #fffbe6 0%, #ffffff 100%);
+}
+
+section.programming {
+    background: linear-gradient(180deg, #eaffec 0%, #ffffff 100%);
+}
+
+
+.Lesson-flow-Image {
+    max-width: 65%;
+}
+
+.Lesson-flow-Container {
+    display: flex;
+    justify-content: center;
+    /* 横中央寄せ */
+    align-items: center;
+    /* 縦中央寄せ */
+    min-height: 100vh;
+    /* 画面全体の高さを確保 */
+    background-color: #fff;
+    /* 背景色（任意） */
+}
+
+/* 全体レイアウト：左右カラム */
+/* 全体レイアウト：中央寄せ＆左右2カラム */
+.Lesson-flow-Detail {
+    display: flex;
+    justify-content: center;
+    /* 中央寄せ */
+    align-items: flex-start;
+    flex-wrap: wrap;
+    /* スマホで縦並び対応 */
+    gap: 40px;
+    /* カラム間の間隔を広めに */
+    max-width: 1100px;
+    /* 全体幅を固定して中央寄せ */
+    margin: 0 auto;
+    margin: 40px 0;
+    /* 画面中央に配置 */
+    padding: 40px 30px;
+    /* 全体の内側余白 */
+    border-radius: 16px;
+    background: #fff;
+    /* 背景を白に（任意） */
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+    /* ふんわり影 */
+}
+
+/* 左カラム：テキスト部分 */
+.Lesson-flow-Detail-Text {
+    flex: 1;
+    min-width: 320px;
+    max-width: 520px;
+    padding: 20px;
+    text-align: left;
+}
+
+/* 右カラム：画像と説明 */
+.lesson-media {
+    flex: 1;
+    min-width: 320px;
+    max-width: 520px;
+    padding: 20px;
+    text-align: center;
+}
+
+.lesson-media img {
+    width: 100%;
+    max-width: 480px;
+    border-radius: 12px;
+    margin-bottom: 14px;
+}
+
+/* 見出し */
+.Lesson-flow-Detail-Text h3 {
+    font-size: 24px;
+    /* H2より一段小さく */
+    font-weight: 700;
+    line-height: 1.4;
+    margin: 0 auto;
+    color: #222;
+}
+
+.Lesson-flow-Detail-Text h4,
+.lesson-media h4 {
+    font-size: 18px;
+    /* H3よりさらに小さく */
+    font-weight: 700;
+    line-height: 1.5;
+    margin: 24px 0 10px;
+    color: #222;
+    position: relative;
+}
+
+.Lesson-flow-Detail-Text h4::after,
+.lesson-media h4::after {
+    content: "";
+    display: block;
+    height: 3px;
+    width: 44px;
+    color: #333;
+    background: #FFD524;
+    margin-top: 6px;
+    border-radius: 2px;
+}
+
+/* 本文 */
+.Lesson-flow-Detail-Text p,
+.lesson-media p {
+    margin: 8px 0 16px;
+    line-height: 1.9;
+    color: #333;
+}
+
+/* 強調 */
+.Lesson-flow-Detail-Text strong {
+    font-weight: 700;
+    color: #111;
+}
+
+.badge {
+    display: inline-block;
+    margin-left: 8px;
+    padding: 2px 8px;
+    font-size: 12px;
+    border-radius: 999px;
+    background: #FFF4B2;
+    color: #333;
+    border: 1px solid #FFD524;
+    vertical-align: middle;
+}
+
+@media (max-width: 768px) {
+
+    .header {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .why-choose {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .reason-container {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .Lesson-flow-Detail {
+        flex-direction: column;
+        /* 縦並び */
+        align-items: center;
+        padding: 24px;
+        gap: 24px;
+    }
+
+    .Lesson-flow-Detail-Text,
+    .lesson-media {
+        max-width: 100%;
+        padding: 12px;
+        text-align: left;
+    }
+
+    .lesson-media img {
+        max-width: 100%;
+        margin: 0 auto 12px;
+    }
+
+    .Lesson-flow-Detail-Text h2 {
+        font-size: 20px;
+    }
+
+    .Lesson-flow-Detail-Text h3,
+    .lesson-media h3 {
+        font-size: 17px;
+    }
+
+    .hero-text h2 {
+        font-size: 28px;
+    }
+
+    .Lesson-flow-Detail-Text h3 {
+        font-size: 21px;
+    }
+
+    .Lesson-flow-Detail-Text h4,
+    .lesson-media h4 {
+        font-size: 17px;
+    }
+
+}
+
+
+.campaign-box {
+    padding: 20px;
+    margin: 0 auto;
+    border-radius: 10px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.pc-img {
+    width: 80%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.sp-img {
+    display: none;
+}
+
+.why-choose {
+    display: flex;
+    /* 横並びにする */
+    align-items: center;
+    /* 縦方向の中央揃え */
+    gap: 20px;
+    /* テキストと画像の間隔 */
+    padding: 100px 10px 0 10px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.why-choose h2 {
+    font-size: 2.3rem;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+
+.reason-image {
+    max-width: 12%;
+    display: block;
+    /* imgはデフォinline要素なのでblockにする */
+    margin-right: auto;
+    /* 左余白を自動 → 右寄せ */
+    margin-left: 40px;
+}
+
+.footer {
+    text-align: center;
+    font-size: 0.8rem;
+    color: #777;
+    padding: 20px;
+    padding-bottom: 70px;
+}
+
+.reason-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+
+    max-width: 1000px;
+    width: 90%;
+    margin: 60px auto;
+    /* ← 左右autoで“中央寄せ” */
+    padding: 0 20px;
+
+    justify-content: center;
+    /* 子要素を中央に並べる（必要なら） */
+    /* 既存の space-between を残したいなら、この行は外す */
+}
+
+.reason {
+    display: flex;
+    align-items: flex-start;
+    flex: 1 1 calc(50% - 20px);
+    /* 2列レイアウト */
+    gap: 16px;
+
+}
+
+.reason-circle {
+    background-color: #FFD524;
+    color: #000;
+    font-weight: bold;
+    font-size: 1.6rem;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.reason-text {
+    flex: 1;
+}
+
+.reason-text strong {
+    display: block;
+    font-size: 1.4rem;
+    margin-bottom: 8px;
+    color: #000;
+}
+
+.reason-text p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #333;
+    margin: 0;
+}
+
+.bottom-line {
+    width: 90%;
+    max-width: 600px;
+    height: 2px;
+    background-color: #ccc;
+    margin: 30px auto 10px;
+}
+
+.note {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 40px;
+}
+
+@media (max-width: 1200px) {
+
+    .menu-icon {
+        padding: 8px;
+    }
+
+    /* タップしやすく */
+
+    /* スライドメニュー：画面比率に拡大、全高を確保 */
+    .menu-panel {
+        right: -100%;
+        width: min(86vw, 320px);
+        height: 100dvh;
+        padding-top: 56px;
+        /* ヘッダー分 */
+        box-shadow: -2px 0 12px rgba(0, 0, 0, .15);
+        overflow-y: auto;
+    }
+
+    .menu-panel li {
+        padding: 16px 20px;
+    }
+
+    /* ===== ヒーローセクション ===== */
+    .hero {
+        height: 38vh;
+        /* 低めにして見出しをすぐ見せる */
+        min-height: 240px;
+        /* 端末が小さくても潰れないように */
+    }
+
+    .hero-text {
+        padding-top: 84px;
+        /* 固定ヘッダー対策で少し下げる */
+        width: 100%;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .hero-text h1 {
+        font-size: 26px;
+        line-height: 1.3;
+        margin: 0 0 6px;
+    }
+
+    .hero-text p {
+        font-size: 14px;
+        margin-top: 6px;
+    }
+
+    .insta-icon,
+    .tiktok-icon {
+        width: 34px;
+        height: 34px;
+    }
+
+    .x-icon {
+        width: 28px;
+        height: 28px;
+        margin-left: 0;
+    }
+
+    .icon {
+        width: 22px;
+        height: 22px;
+    }
+
+    /* ===== レッスンフロー：2カラム→縦並び ===== */
+    .Lesson-flow-Container {
+        min-height: unset;
+        padding: 0 12px;
+    }
+
+    .Lesson-flow-Detail {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 20px;
+        padding: 20px 16px;
+        margin: 24px 0;
+    }
+
+    .Lesson-flow-Detail-Text,
+    .lesson-media {
+        min-width: 0;
+        max-width: 100%;
+        padding: 8px 0;
+        text-align: left;
+    }
+
+    /* 動画を端末幅にフィット */
+    .lesson-media video {
+        width: 100%;
+        height: auto;
+        max-height: none;
+    }
+
+    /* 見出し・本文の最適化 */
+    .Lesson-flow-Detail-Text h3 {
+        font-size: 20px;
+    }
+
+    .Lesson-flow-Detail-Text h4,
+    .lesson-media h4 {
+        font-size: 16px;
+        margin: 16px 0 8px;
+    }
+
+    .Lesson-flow-Detail-Text p,
+    .lesson-media p {
+        font-size: 14px;
+        line-height: 1.8;
+    }
+
+    .badge {
+        font-size: 11px;
+        padding: 2px 8px;
+    }
+
+    /* フロー画像のはみ出し防止 */
+    .Lesson-flow-Image {
+        max-width: 100%;
+    }
+
+    /* ===== キャンペーン枠 ===== */
+    .campaign-box {
+        padding: 14px;
+    }
+
+    .sp-img {
+        display: none;
+    }
+
+    /* ===== 「私たちの強み」 ===== */
+    .why-choose {
+        padding: 48px 12px 0;
+        max-width: 100%;
+        gap: 12px;
+    }
+
+    .why-choose h2 {
+        font-size: 22px;
+        margin-bottom: 16px;
+    }
+
+    .reason-container {
+        margin: 28px 12px;
+        padding: 0;
+        gap: 20px;
+        justify-content: center;
+    }
+
+    .reason {
+        flex: 1 1 100%;
+        /* 1カラムに */
+        gap: 12px;
+    }
+
+    .reason-circle {
+        width: 42px;
+        height: 42px;
+        font-size: 18px;
+    }
+
+    .reason-text strong {
+        font-size: 16px;
+    }
+
+    .reason-text p {
+        font-size: 14px;
+        line-height: 1.8;
+        padding: 0 20px;
+    }
+
+    /* 右側に置いている説明画像：スマホでは非表示（必要なら表示に変更） */
+    .reason-image {
+        display: none;
+    }
+
+    /* ===== 背景の動く図形：負荷軽減（任意） ===== */
+    #background {
+        opacity: 0.9;
+    }
+
+    .shape {
+        opacity: 0.12;
+    }
+
+    .footer {
+        padding: 16px;
+        font-size: 12px;
+        padding-bottom: 76px;
+        /* 下の固定ボタンに当たらないよう余白追加 */
+    }
+}
+
+
+@media (max-width: 768px) {
+    .Lesson-flow-Detail {
+        flex-direction: column;
+        /* 縦並び */
+        align-items: center;
+        padding: 24px;
+        gap: 24px;
+    }
+
+    .Lesson-flow-Detail-Text,
+    .lesson-media {
+        max-width: 100%;
+        padding: 12px 16px;
+        text-align: left;
+    }
+
+    .lesson-media img {
+        max-width: 100%;
+        margin: 0 auto 12px;
+    }
+
+    .Lesson-flow-Detail-Text h2 {
+        font-size: 20px;
+    }
+
+    .Lesson-flow-Detail-Text h3,
+    .lesson-media h3 {
+        font-size: 17px;
+    }
+
+    .hero-text h2 {
+        font-size: 28px;
+    }
+
+    .Lesson-flow-Detail-Text h3 {
+        font-size: 21px;
+    }
+
+    .Lesson-flow-Detail-Text h4,
+    .lesson-media h4 {
+        font-size: 17px;
+    }
+
+    .campaign-box {
+        padding: 14px;
+    }
+
+    .sp-img {
+
+        display: none;
+    }
+
+    /* 下部固定の問い合わせバー */
+    .contact-menu {
+        padding: 8px 10px;
+        gap: 8px;
+    }
+
+    .contact-menu button {
+        padding: 10px 14px;
+        font-size: 14px;
+        flex: 1 1 0;
+        min-width: 0;
+    }
+}
+
+@media (max-width: 500px) {
+    .campaign-box {
+        padding: 14px;
+    }
+
+    .pc-img {
+        display: none;
+    }
+
+    .sp-img {
+        display: block;
+        width: 80%;
+        height: auto;
+        margin: 0 auto;
+    }
+}

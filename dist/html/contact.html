@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>お問い合わせ</title>
+    <link rel="stylesheet" href="../css/contact.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="logo">
+        <img
+          src="../image/ChatGPT Image Jul 26, 2025, 05_04_10 PM.png"
+          alt="ChatGPTアイコン"
+        />
+      </div>
+      <div class="menu-icon" id="hamburger">&#9776;</div>
+
+      <!-- スライドメニュー -->
+      <div class="menu-panel" id="menuPanel">
+        <ul>
+          <li><a href="course1-2.html">小学生１・２</a></li>
+          <li><a href="course3-4.html">小学生３・４</a></li>
+          <li><a href="course5-6.html">小学生５・６</a></li>
+          <li><a href="course7-8.html">中学生</a></li>
+          <li><a href="contact.html">お問い合わせ</a></li>
+          <li><a href="faq.html">よくある質問</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <div id="background"></div>
+    <main class="contact-page">
+      <img
+        src="../image/grenn-runing.png"
+        alt="子ども左上"
+        class="illust top-right2"
+      />
+      <img
+        src="../image/tumikiyollow.png"
+        alt="子ども右上"
+        class="illust top-right"
+      />
+      <img
+        src="../image/green-sayinghi.png"
+        alt="子ども左中"
+        class="illust bottom-right"
+      />
+      <img
+        src="../image/yollow-happyface.png"
+        alt="子ども右中"
+        class="illust bottom-left"
+      />
+      <img
+        src="../image/kiiro1.png"
+        alt="子ども右中"
+        class="illust bottom-left1"
+      />
+      <img
+        src="../image/greenhasigo.png"
+        alt="子ども右中"
+        class="illust top-left2"
+      />
+      <!-- フォーム -->
+      <section class="form-container">
+        <h1>お問い合わせ</h1>
+        <form
+          action="https://formspree.io/f/xjkpqaab"
+          method="POST"
+          class="contact-form"
+        >
+          <label for="name">お名前</label>
+          <input type="text" id="name" name="name" required />
+
+          <label for="email">メールアドレス</label>
+          <input type="email" id="email" name="email" required />
+
+          <label for="message">お問い合わせ内容</label>
+          <textarea id="message" name="message" rows="4" required></textarea>
+
+          <button type="submit">送信する</button>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 TSUMIKI KIDS. All rights reserved.</p>
+    </footer>
+    <script src="../js/contact.js"></script>
+  </body>
+</html>

@@ -1,0 +1,287 @@
+#background {
+    position: fixed;
+    /* ← 画面に固定 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    /* ← 他の要素の後ろへ */
+    pointer-events: none;
+    /* ← クリック無効化 */
+}
+
+.shape {
+    position: absolute;
+    opacity: 0.19;
+    animation: float 10s linear infinite;
+
+}
+
+.circle {
+    border-radius: 50%;
+}
+
+.square {
+    /* そのまま四角 */
+}
+
+.triangle {
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 35px solid red;
+    /* 色はJSで上書き */
+}
+
+/* ヘッダー全体 */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    height: 60px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    z-index: 1000;
+}
+
+.logo img {
+    height: 80px;
+    width: auto;
+}
+
+.menu-icon {
+    font-size: 28px;
+    cursor: pointer;
+    z-index: 1001;
+    transition: transform 0.3s ease;
+}
+
+
+.menu-icon.active {
+    transform: rotate(90deg);
+}
+
+/* メニューパネル */
+.menu-panel {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 200px;
+    height: 100%;
+    background: #fff;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+    transition: right 0.3s ease;
+    z-index: 999;
+    padding-top: 60px;
+}
+
+.menu-panel.active {
+    right: 0;
+}
+
+.menu-panel ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
+
+.menu-panel li {
+    padding: 15px 20px;
+    border-bottom: 1px solid #ccc;
+}
+
+.menu-panel a {
+    text-decoration: none;
+    color: #333;
+}
+
+.contact-page {
+    text-align: center;
+    padding: 20px;
+    position: relative;
+}
+
+.form-container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 30px;
+    border-radius: 12px;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    text-align: left;
+}
+
+.contact-form label {
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 15px;
+}
+
+.contact-form button {
+    background-color: #ffd900;
+    color: #000;
+    border: none;
+    padding: 12px;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.contact-form button:hover {
+    background-color: #eeca00;
+}
+
+footer {
+    text-align: center;
+    font-size: 12px;
+    color: #666;
+}
+
+/* キャラ共通調整 */
+.illust {
+    position: absolute;
+    width: 140px;
+    z-index: 1;
+}
+
+/* 各キャラの位置（デスクトップ） */
+.top-right2 {
+    top: 60px;
+    right: 40px;
+}
+
+.top-right {
+    top: 80px;
+    left: 140px;
+}
+
+.bottom-right {
+    top: 340px;
+    right: 40px;
+}
+
+.bottom-left {
+    top: 420px;
+    left: 120px;
+}
+
+.bottom-left1 {
+    top: 160px;
+    right: 230px;
+}
+
+.top-left2 {
+    top: 260px;
+    left: 40px;
+}
+
+
+
+@media (max-width: 1250px) {
+
+
+    .bottom-left1 {
+        display: none;
+    }
+}
+
+@media (max-width: 1050px) {
+
+
+
+    .logo img {
+        height: 50px;
+    }
+
+    .menu-icon {
+        font-size: 26px;
+    }
+
+    /* イラストサイズ・位置調整 */
+    .illust {
+        width: 100px;
+    }
+
+    .top-right2 {
+        display: none;
+    }
+
+
+
+    .bottom-right {
+        display: none;
+    }
+
+    .bottom-left {
+        display: none;
+    }
+
+    .top-right {
+        display: none;
+    }
+
+    .top-left2 {
+        display: none;
+    }
+
+    .top-left3 {
+        display: none;
+    }
+
+    /* フォーム調整 */
+    .form-container {
+        width: 90%;
+        padding: 20px 10px;
+        margin: 0 auto;
+    }
+
+    .form-container h1 {
+        margin-top: 70px;
+        font-size: 20px;
+    }
+
+    .contact-form {
+        gap: 12px;
+    }
+
+    .contact-form label {
+        font-size: 0.9rem;
+        /* ← ラベル文字小さく */
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        font-size: 0.9rem;
+        /* ← 入力欄の文字を小さく */
+        padding: 8px;
+        /* ← 内側の余白も控えめに */
+    }
+
+    .contact-form button {
+        font-size: 15px;
+        padding: 10px;
+    }
+
+    footer {
+        margin-top: 30px;
+    }
+}

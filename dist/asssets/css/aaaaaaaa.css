@@ -1,0 +1,13 @@
+#menu {
+    display: none;
+    flex-direction: column;
+    background-color: #f0f0f0;
+    padding: 1rem;
+    margin-top: 1rem;
+    border: 1px solid #ccc;
+}
+
+/* 表示状態（toggleで追加） */
+#menu.show {
+    display: flex;
+}

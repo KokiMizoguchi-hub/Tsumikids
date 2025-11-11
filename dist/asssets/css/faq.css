@@ -1,0 +1,260 @@
+/* ===== 共通変数 & 器 ===== */
+:root {
+    --content-max: 1200px;
+    /* 中身の上限幅 */
+    --gutter: clamp(16px, 4vw, 32px);
+    /* 端の余白 */
+    --panel-min: 280px;
+    /* ドロワー最小 */
+    --panel-ideal: 86vw;
+    /* 端末比 */
+    --panel-max: 360px;
+    /* ドロワー最大（ここで頭打ち） */
+}
+
+.container {
+    max-width: var(--content-max);
+    margin-inline: auto;
+    padding-inline: var(--gutter);
+}
+
+/* ヘッダーが固定なので本文に余白を常時付与 */
+main {
+    padding-top: 72px;
+}
+
+/* 横スクロール予防（絶対配置のイラスト対策） */
+html,
+body {
+    overflow-x: hidden;
+}
+
+/* ===== 背景デコ ===== */
+#background {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.shape {
+    position: absolute;
+    opacity: .19;
+    animation: float 10s linear infinite;
+}
+
+.circle {
+    border-radius: 50%;
+}
+
+.triangle {
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 35px solid red;
+    /* JSで上書き可 */
+}
+
+/* ===== ヘッダー ===== */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    z-index: 1000;
+    background: transparent;
+    /* 必要なら色を付ける */
+}
+
+.header-inner {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo img {
+    height: 80px;
+    width: auto;
+}
+
+.menu-icon {
+    font-size: 28px;
+    cursor: pointer;
+    z-index: 1100;
+    transition: transform .3s ease;
+}
+
+.menu-icon.active {
+    transform: rotate(90deg);
+}
+
+/* ===== ドロワーメニュー（オーバーレイ） ===== */
+.menu-panel {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: clamp(var(--panel-min), var(--panel-ideal), var(--panel-max));
+    height: 100dvh;
+    background: #fff;
+    box-shadow: -2px 0 12px rgba(0, 0, 0, .15);
+    z-index: 1050;
+    padding-top: 60px;
+    overflow-y: auto;
+
+    /* 初期は画面外：本文を押さない（副作用少） */
+    transform: translateX(100%);
+    transition: transform .28s ease;
+}
+
+.menu-panel.active {
+    transform: translateX(0);
+}
+
+.menu-panel ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
+
+.menu-panel li {
+    padding: 15px 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.menu-panel a {
+    text-decoration: none;
+    color: #333;
+}
+
+/* ===== フッター ===== */
+.footer {
+    text-align: center;
+    padding-top: 90px;
+    font-size: 12px;
+    color: #666;
+}
+
+/* ===== FAQ 本文 ===== */
+.faq-section {
+    padding: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-section h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+}
+
+.faq-item {
+    background: #fff;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, .1);
+    margin-bottom: 1.5rem;
+}
+
+.faq-item h3 {
+    margin: 0 0 .5rem;
+    color: #4caf50;
+    font-size: 1.2rem;
+}
+
+.faq-item p {
+    margin: 0;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* ===== イラスト ===== */
+.illust {
+    position: fixed;
+    width: 140px;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.top-left3 {
+    top: 490px;
+    right: 18%;
+    width: 180px;
+}
+
+.top-left2 {
+    top: 230px;
+    left: 17%;
+    width: 180px;
+}
+
+/* ===== スマホ ===== */
+@media (max-width: 767px) {
+    .menu-icon {
+        padding: 8px;
+    }
+
+    /* ドロワー：SPでも上限固定に統一（ぶれない） */
+    .menu-panel {
+        width: clamp(var(--panel-min), 100vw, var(--panel-max));
+        padding-top: 56px;
+        /* ヘッダー分 */
+    }
+
+    .menu-panel li {
+        padding: 16px 20px;
+    }
+
+    .faq-section {
+        padding: 20px 16px;
+    }
+
+    .faq-section h1 {
+        font-size: 22px;
+        margin-bottom: 16px;
+    }
+
+    .faq-item {
+        padding: 16px;
+        margin-bottom: 14px;
+        border-radius: 12px;
+        box-shadow: 0 6px 16px rgba(0, 0, 0, .06);
+    }
+
+    .faq-item h3 {
+        font-size: 16px;
+        margin-bottom: 8px;
+    }
+
+    .faq-item p {
+        font-size: 14px;
+    }
+
+    .illust {
+        width: 32vw;
+        max-width: 120px;
+        opacity: .95;
+    }
+
+    .top-left2,
+    .top-left3 {
+        display: none;
+    }
+
+    .footer {
+        padding-top: 48px;
+        font-size: 12px;
+    }
+}
+
+/* ===== タブレット〜中画面：イラスト抑制 ===== */
+@media (max-width: 1200px) {
+
+    .top-left2,
+    .top-left3 {
+        display: none;
+    }
+}

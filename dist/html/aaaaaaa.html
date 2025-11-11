@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>自己紹介カード</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --ink: #111;
+        --accent: #ffd524; /* 黄色ライン */
+        --muted: #666;
+        --bg: #fff;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family: "Noto Sans JP", system-ui, -apple-system, "Helvetica Neue",
+          Arial, "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+        color: var(--ink);
+        background: var(--bg);
+        line-height: 1.9;
+      }
+
+      /* ===== wrapper ===== */
+      .about {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 48px 20px 72px;
+        display: grid;
+        grid-template-columns: 420px 1fr;
+        gap: 48px;
+        align-items: start;
+      }
+
+      /* ===== left column ===== */
+      .left {
+        position: relative;
+        padding-left: 8px;
+      }
+      .title {
+        font-weight: 900;
+        font-size: clamp(44px, 7vw, 84px);
+        line-height: 0.95;
+        letter-spacing: 0.02em;
+        margin: 0 0 20px;
+      }
+      .title .underline {
+        display: block;
+        width: 260px;
+        height: 10px;
+        border-radius: 6px;
+        background: var(--accent);
+        margin: 18px 0 24px;
+      }
+      /* 小さなブロックアイコン（積み木） */
+      .block-icon {
+        width: 56px;
+        height: 36px;
+        background: var(--accent);
+        border-radius: 6px;
+        position: absolute;
+        top: 10px;
+        right: 30px;
+      }
+      .block-icon::before,
+      .block-icon::after {
+        content: "";
+        position: absolute;
+        top: -10px;
+        width: 12px;
+        height: 10px;
+        background: var(--accent);
+        border-radius: 3px;
+      }
+      .block-icon::before {
+        left: 10px;
+      }
+      .block-icon::after {
+        right: 10px;
+      }
+
+      /* マスコット（簡易・CSSだけ／画像差し替え可） */
+      .mascot {
+        width: 190px;
+        aspect-ratio: 1/1.05;
+        background: #ffd524;
+        border: 6px solid #111;
+        border-radius: 45% 45% 40% 40% / 55% 55% 45% 45%;
+        position: relative;
+        margin: 14px 0 8px;
+      }
+      .mascot::before,
+      .mascot::after {
+        /* 目 */
+        content: "";
+        position: absolute;
+        top: 44%;
+        width: 18px;
+        height: 18px;
+        background: #111;
+        border-radius: 50%;
+        box-shadow: 0 0 0 6px #ffd524 inset;
+      }
+      .mascot::before {
+        left: 33%;
+      }
+      .mascot::after {
+        right: 33%;
+      }
+      .mascot .cheek {
+        position: absolute;
+        top: 53%;
+        width: 16px;
+        height: 16px;
+        background: #ff9fa2;
+        border-radius: 50%;
+      }
+      .mascot .cheek.left {
+        left: 27%;
+      }
+      .mascot .cheek.right {
+        right: 27%;
+      }
+      .mascot .body {
+        position: absolute;
+        left: 50%;
+        bottom: -8%;
+        width: 54%;
+        height: 38%;
+        transform: translateX(-50%);
+        background: #ffd524;
+        border: 6px solid #111;
+        border-radius: 50% / 60%;
+      }
+      .mascot .arm {
+        position: absolute;
+        bottom: 12%;
+        width: 20%;
+        height: 22%;
+        background: #ffd524;
+        border: 6px solid #111;
+        border-radius: 50%;
+      }
+      .mascot .arm.left {
+        left: 6%;
+      }
+      .mascot .arm.right {
+        right: 6%;
+      }
+
+      .brand {
+        margin-top: 12px;
+        font-weight: 900;
+        letter-spacing: 0.06em;
+        color: var(--ink);
+      }
+
+      /* ===== right column ===== */
+      .content {
+        font-size: clamp(16px, 2.2vw, 18px);
+        color: #222;
+      }
+      .content p {
+        margin: 0 0 18px;
+      }
+
+      /* ===== responsive ===== */
+      @media (max-width: 900px) {
+        .about {
+          grid-template-columns: 1fr;
+          gap: 24px;
+          padding: 32px 16px 56px;
+        }
+        .title {
+          font-size: clamp(36px, 10vw, 62px);
+        }
+        .title .underline {
+          width: 200px;
+          height: 8px;
+        }
+        .block-icon {
+          right: 8px;
+          transform: scale(0.9);
+        }
+        .mascot {
+          width: 160px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="about" aria-labelledby="about-heading">
+      <!-- Left -->
+      <div class="left">
+        <div class="block-icon" aria-hidden="true"></div>
+        <h1 id="about-heading" class="title">
+          自己<br />紹介
+          <span class="underline" aria-hidden="true"></span>
+        </h1>
+
+        <!-- Mascot (画像に差し替える場合は <img src="..." alt="TSUMIKIキャラクター"> に置換可) -->
+        <div class="mascot" role="img" aria-label="TSUMIKI KIDSのキャラクター">
+          <span class="cheek left"></span>
+          <span class="cheek right"></span>
+          <span class="body"></span>
+          <span class="arm left"></span>
+          <span class="arm right"></span>
+        </div>
+
+        <div class="brand">TSUMIKI<br />KIDS</div>
+      </div>
+
+      <!-- Right -->
+      <div class="content">
+        <p>
+          こんにちは、ウェブ開発者のKokiと申します。私はウェブ開発者としてのキャリアを築いており、
+          1年間の独学期間を経て、HTML、CSS、JavaScript、Python、UI/UXなどのプログラミング言語を習得しました。
+          その後、インドのITスクールで6か月間学び、実践を学び、さらに深い知識と実践的なスキルを身に付けました。
+        </p>
+        <p>
+          これまでに、1つのフリーランスプロジェクトを独立して完了しました。英語と日本の会社で働くして、
+          フロントエンドおよびバックエンドの開発に取り組んでいます。
+        </p>
+      </div>
+    </section>
+  </body>
+</html>
